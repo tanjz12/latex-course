@@ -1,17 +1,29 @@
+% UTF-8 encoding
+% CJKfonts package
+% latex+dvips, latex+dvipdfm(x) or pdflatex
 \documentclass{article}
+% 中文输出
+\usepackage{CJKutf8}
+
+% 人民币符号
+\usepackage{\textcomp}
 \begin{document}
 
-% steps:
-% 1. escape the dollar signs with backslashes (e.g. $0.79 --> \$0.79)
-% 2. escape the percent sign (68% --> 68\%)
-% 3. fix the double quotes (" --> `` or '')
+\begin{CJK*}{UTF8}{gbsn}
 
-In March 2006, Congress raised that ceiling an 
-additional \$0.79 trillion to \$8.97 trillion,
-which is approximately 68\% of GDP. As of October
-4, 2008, the ``Emergency Economic Stabilization
-Act of 2008'' raised the current debt ceiling
-to \$11.3 trillion.
+% 步骤:
+% 1. 用反斜线对美元符号（$）进行强制转换 (例：$0.79 --> \$0.79)
+% 2. 用反斜线对百分号（%）进行强制转换 (68% --> 68\%)
+% 3. 用反引号和单引号输入双引号 (“ ” --> 左侧双引号`` 或 右侧双引号'')
+
+在2006年三月, 国会再次将国债限额 
+上调\  \$0.79万亿 至 \ \$8.97 万亿,
+约占国民生产总值 68\%。 至2008年10月
+4日, ``2008年经济紧急稳定法案'' 
+已将目前国债上限上调至\ \$11.3 万亿。
+
+按 1:6.8870 的汇率，\$11.3 万亿换算成人民币约为\ \textyen77.82万亿。
+
+\clearpage\end{CJK*}
 
 \end{document}
-
