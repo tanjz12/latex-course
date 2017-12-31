@@ -1,14 +1,24 @@
+% UTF-8 encoding
+% CJKfonts package
+% latex+dvips, latex+dvipdfm(x) or pdflatex
 \documentclass{article}
+\usepackage{CJKutf8,textcomp}
+\newcommand{\comment}[1]{}
 \begin{document}
 
-In March 2006, Congress raised that ceiling an 
-additional $0.79 trillion to $8.97 trillion,
-which is approximately 68% of GDP. As of October
-4, 2008, the "Emergency Economic Stabilization
-Act of 2008" raised the current debt ceiling
-to $11.3 trillion.
-% hint: the cause of the error is actually above,
-% even though LaTeX puts the error message here
+\begin{CJK*}{UTF8}{gbsn}
+
+在2006年三月, 国会再次将国债限额 
+上调$0.79万亿 至$8.97 万亿,
+约占国民生产总值 68%。 至2008年10月
+4日, "2008年经济紧急稳定法案" 
+已将目前国债上限上调至$11.3 万亿。
+
+按 1:6.8870 的汇率，$11.3 万亿换算
+成人民币约为￥\comment{\textyen}77.82万亿。
+
+% 提示：尽管LaTeX可能指示此段出错，
+% 语法错误实在上文。
 
 \end{document}
 
