@@ -1,20 +1,22 @@
 \documentclass{article}
+\usepackage{CJKutf8}
 \usepackage{amsmath}
 \begin{document}
+\begin{CJK*}{UTF8}{gbsn}
 
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and
-identically distributed random variables with
-$\operatorname{E}[X_i] = \mu$ and
-$\operatorname{Var}[X_i] = \sigma^2 < \infty$, and let
+令 $X_1, X_2, \ldots, X_n$ 为一组期望值 
+$\operatorname{E}[X_i] = \mu$，方差 
+$\operatorname{Var}[X_i] = \sigma^2 < \infty$
+的独立同分布随机变量，且用
 \begin{equation*}
 S_n = \frac{1}{n}\sum_{i}^{n} X_i
 \end{equation*}
-denote their mean. Then as $n$ approaches infinity, the
-random variables $\sqrt{n}(S_n - \mu)$ converge in
-distribution to a normal $N(0, \sigma^2)$.
+表示其平均值。当 $n$ 趋于无穷时, 
+随机变量  $\sqrt{n}(S_n - \mu)$ 
+将依分布收敛至正态分布 $N(0, \sigma^2)$。
 
-% bonus points: the N for normal is usually set in a caligraphic
-% font; you can get this using $\mathcal{N}(0, \sigma^2)$.
+% 附加题: 正态分布的N常用花体表示；你可试试
+% 用$\mathcal{N}(0, \sigma^2)$命令实现花体。
 
+\clearpage\end{CJK*}
 \end{document}
-

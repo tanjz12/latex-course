@@ -1,20 +1,26 @@
 \documentclass{article}
+\usepackage{CJKutf8}
 \begin{document}
 
-% hints:
-% 1. you might want to use the amsmath package
-% 2. the command for an infinity symbol is \infty
+% 提示:
+% 1. 你可能需要 amsmath 宏包
+% 2. 用\infty 命令输入无穷符号
+% 3. $...$ 符号之间必须使用英文逗号（或其他英文输入状态下的标点符号）
 
-Let X1, X2, ..., Xn be a sequence of independent and
-identically distributed random variables with
-E[Xi] = mu and Var[Xi] = sigma squared < infinity, 
-and let
+\begin{CJK*}{UTF8}{gbsn}
 
-Sn = 1/n times the sum for i from 1 to n of Xi
+令 X1, X2, ..., Xn 为一组期望值 E[Xi] = mu，
+方差 Var[Xi] = sigma平方 < 无穷的
+独立同分布随机变量，且用
 
-denote their mean. Then as n approaches infinity, the
-random variables square root n(Sn - mu) converge in
-distribution to a normal N(0; sigma squared).
+Sn = 1/n 乘上Xi从1到n的求和
+
+表示其平均值。当n趋于无穷时, 
+随机变量 （n的平方根）乘(Sn - mu) 
+将依分布收敛至正态分布 
+N(0; sigma squared)。
+
+\clearpage\end{CJK*}
 
 \end{document}
 
