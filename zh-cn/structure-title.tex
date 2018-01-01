@@ -1,16 +1,28 @@
 \documentclass{article}
+\usepackage{xeCJK}
+\setCJKmainfont{STXIHEI.TTF}
+\setCJKmathfont{cmr}
 
-\title{The Title}
+% 摘要标题默认为Abstract
+\renewcommand{\abstractname}{摘要}
 
-\author{A. Author}
+\title{标题}
+
+\author{作者}
 
 \date{\today}
+
+\renewcommand{\today}
+{\number\year 年 \number\month 月 \number\day 日}
+
+\date{\today} % 改成中文日期格式
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Abstract goes here...
+摘要在这里...
 \end{abstract}
 
 \end{document}
+
