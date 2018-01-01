@@ -1,8 +1,18 @@
+% Need to compile under XeTex or XeLaTeX
+
 \documentclass{beamer}
+
+% For output in Chinese
+\usepackage{xeCJK,textcomp}
+\setCJKmainfont[BoldFont = simhei.ttf, ItalicFont = xjlFont.ttf]{STXIHEI.TTF}
+\setCJKmathfont{cmr}
+\newfontfamily\myfont{Junicode-Italic.ttf}
 
 \input{preamble.tex}
 
-\subtitle{Part 2: Structured Documents \& More}
+\usepackage{amsmath}
+
+\subtitle{第二节：多层文档...}
 
 \begin{document}
 
@@ -16,12 +26,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Structured Documents}
+\section{分层文档}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
+\begin{frame}{大纲}
 \begin{multicols}{2}
 \tableofcontents[currentsection]
 \end{multicols}
@@ -32,34 +42,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}
 \begin{itemize}
-\item In Part 1, we learned about commands and environments for typesetting text
-and mathematics.
-\item Now, we'll learn about commands and environments for structuring
-documents.
-\item You can try out the new commands in Overleaf:
+\item 在第一节，我们学习了一些命令和情境。它们能将文本和公式转换成各种格式。
+\item 现在我们学习控制文档结构。这会用到另一些命令和情境。
+\item 你可以在Overleaf中试试这些新命令:
 \end{itemize}
 \vskip 2em
 \begin{center}
 \fbox{\href{\wlnewdoc{basics.tex}}{%
-Click here to open the example document in \wllogo{}}}
+点此打开\wllogo{}示例文档}}
 \\[1ex]\scriptsize{}
-For best results, please use \href{http://www.google.com/chrome}{Google Chrome} or a recent \href{http://www.mozilla.org/en-US/firefox/new/}{FireFox}.
+为保证编译体验，最好使用 \href{http://www.google.com/chrome}{Google Chrome} 或新版 \href{http://www.mozilla.org/en-US/firefox/new/}{FireFox}浏览器。
 \end{center}
 \vskip 2ex
 \begin{itemize}
-\item Let's get started!
+\item 开始吧！
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Title and Abstract}
+\subsection{标题页和摘要}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}{\small
-\item Tell \LaTeX{} the \cmdbs{title} and \cmdbs{author} names in the preamble.
-\item Then use \cmdbs{maketitle} in the document to actually create the title.
-\item Use the \bftt{abstract} environment to make an abstract.
+\item 在头文件中告诉 \LaTeX{} 标题 \cmdbs{title} 和作者 \cmdbs{author}。
+\item 然后在正文中用\cmdbs{maketitle} 生成标题。
+\item 把摘要放在\bftt{abstract}情境里。
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
@@ -73,11 +81,11 @@ For best results, please use \href{http://www.google.com/chrome}{Google Chrome} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sections}
+\subsection{章节}
 \begin{frame}{\insertsubsection}
 \begin{itemize}{\small
-\item Just use \cmdbs{section} and \cmdbs{subsection}.
-\item Can you guess what \cmdbs{section*} and \cmdbs{subsection*} do?
+\item 使用 \cmdbs{section} 和 \cmdbs{subsection}分层即可。
+\item 你猜 \cmdbs{section*} 和 \cmdbs{subsection*} 有什么效果？
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
@@ -91,12 +99,11 @@ For best results, please use \href{http://www.google.com/chrome}{Google Chrome} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Labels and Cross-References}
+\subsection{标签和引用}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}{\small
-\item Use \cmdbs{label} and \cmdbs{ref} for automatic numbering.
-\item The \bftt{amsmath} package provides \cmdbs{eqref} for referencing
-equations.
+\item 用 \cmdbs{label} 和 \cmdbs{ref} 自动编号
+\item \bftt{amsmath} 宏包提供 \cmdbs{eqref} 以引用表达式。
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
@@ -109,42 +116,40 @@ equations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exercise}
-\begin{frame}[fragile]{Structured Documents Exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{练习}
+\begin{frame}[fragile]{多层文档练习}
 
-\begin{block}{Typeset this short paper in \LaTeX:
-\footnote{From \url{http://pdos.csail.mit.edu/scigen/}, a random
-paper generator.}}
+\begin{block}{用 \LaTeX 输入这篇短论文：
+\footnote{英文版来自 \url{http://pdos.csail.mit.edu/scigen/}，一个论文随机生成器，中文版是笠翁对韵，三字经和千字文。}}
 \begin{center}
 \fbox{\href{\fileuri/structure-exercise-solution.pdf}{%
-Click to open the paper}}
+点击打开文档}}
 \end{center}
-Make your paper look like this one. Use \cmdbs{ref} and \cmdbs{eqref} to avoid
-explicitly writing section and equation numbers into the text.
+你的目标就是这样的文档。用 \cmdbs{ref} 和 \cmdbs{eqref}；不要在文本中直接写章节和方程编号。
 \end{block}
 \vskip 2ex
 \begin{center}
 \fbox{\href{\wlnewdoc{structure-exercise.tex}}{%
-Click to open this exercise in \wllogo{}}}
+点此在 \wllogo{} 中打开该练习的源码}}
 \end{center}
 
 \begin{itemize}
-\item Once you've tried,
+\item 试过后，
 \fbox{\href{\wlnewdoc{structure-exercise-solution.tex}}{%
-click here to see my solution}}.
+这里有我的代码}}.
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Figures and Tables}
+\section{图表}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
+\begin{frame}{大纲}
 \begin{multicols}{2}
 \tableofcontents[currentsection]
 \end{multicols}
@@ -153,12 +158,12 @@ click here to see my solution}}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Graphics}
+\subsection{图象}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item Requires the \bftt{graphicx} package, which provides the
-\cmdbs{includegraphics} command.
-\item Supported graphics formats include JPEG, PNG and PDF (usually).
+\item 需要 \bftt{graphicx} 宏包提供
+\cmdbs{includegraphics} 命令
+\item 支持包括 JPEG, PNG 和 (大多数) PDF格式的图像.
 \end{itemize}
 \begin{exampletwouptiny}
 \includegraphics[
@@ -169,36 +174,32 @@ click here to see my solution}}.
   angle=270]{gerbil}
 \end{exampletwouptiny}
 
-\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
+\tiny{图象使用许可：\href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Interlude: Optional Arguments}
+\begin{frame}[fragile]{插曲：非必需参数}
 \begin{itemize}
-\item We use square brackets \keystrokebftt{[} \keystrokebftt{]} for optional
-arguments, instead of braces \keystrokebftt{\{} \keystrokebftt{\}}.
-\item \cmdbs{includegraphics} accepts optional arguments that allow you to transform the
-image when it is included. For example, \bftt{width=0.3\cmdbs{textwidth}} makes
-the image take up 30\% of the width of the surrounding text (\cmdbs{textwidth}).
-\item \cmdbs{documentclass} accepts optional arguments, too. Example:
+\item 非必需参数都放在方括号 \keystrokebftt{[} \keystrokebftt{]} 里，而非花括号 \keystrokebftt{\{} \keystrokebftt{\}}。
+\item \cmdbs{includegraphics} 命令有许多参数可调整。这些非必需参数可以调整图像显示的方式。比如\bftt{width=0.3\cmdbs{textwidth}} 使图像宽度变为文段宽(\cmdbs{textwidth})乘以$0.3$。
+\item \cmdbs{documentclass} 也有可选参数。比如：
 \mint{latex}|\documentclass[12pt,twocolumn]{article}|
 \vskip 3ex
-makes the text bigger (12pt) and puts it into two columns.
-\item Where do you find out about these? See the slides at the end of this
-presentation for links to more information.
+将字体放大至12pt（小四）并用\bftt{twocolomn}分成两栏.
+\item 去哪里查找这些可调整的参数？片末有资源。
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[fragile]{Floats}
+\subsection[fragile]{图片位置/Floats}
 \begin{frame}{\insertsubsection}
 \begin{itemize}
-\item Allow \LaTeX{} to decide where the figure will go (it can ``float'').
-\item You can also give the figure a caption, which can be referenced with
+\item \LaTeX{} 允许自定义图片位置 (“浮动”格式).
+\item 你也可以添加图注
 \cmdbs{ref}.
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
@@ -209,36 +210,36 @@ presentation for links to more information.
 \includegraphics[width=\textwidth,clip,trim=2in 5in 3in 1in]{media-graphics.pdf}
 \end{minipage}
 
-\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
+\tiny{图象使用许可：\href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tables}
+\subsection{制表}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item Tables in \LaTeX{} take some getting used to.
-\item Use the \bftt{tabular} environment from the \bftt{tabularx} package.
-\item The argument specifies column alignment --- \textbf{l}eft, \textbf{r}ight, \textbf{r}ight.
+\item \LaTeX{} 制表，习惯了其实很方便。
+\item 用 \bftt{tabularx} 宏包的 \bftt{tabular}表格情境。 
+\item 花括号里是各栏对齐方式——\textbf{l}eft左对齐, \textbf{r}ight右对齐, \textbf{r}ight右对齐.
 \begin{exampletwouptiny}
 \begin{tabular}{lrr}
-Item   & Qty & Unit \$ \\
-Widget & 1   & 199.99  \\
-Gadget & 2   & 399.99  \\
-Cable  & 3   & 19.99   \\
+物品   & 数量 & 单价 \$ \\
+冬瓜   & 1   & 199.99  \\
+南瓜   & 2   & 399.99  \\
+西瓜   & 3   & 19.99   \\
 \end{tabular}
 \end{exampletwouptiny}
-\item It also specifies vertical lines; use \cmdbs{hline} for horizontal lines.
+\item 这部分也能设置纵向分割线; \cmdbs{hline} 生成横向分割线。
 \begin{exampletwouptiny}
 \begin{tabular}{|l|r|r|} \hline
-Item   & Qty & Unit \$ \\\hline
-Widget & 1   & 199.99  \\
-Gadget & 2   & 399.99  \\
-Cable  & 3   & 19.99   \\\hline
+物品   & 数量 & 单价 \$ \\\hline
+冬瓜   & 1   & 199.99  \\
+南瓜   & 2   & 399.99  \\
+西瓜   & 3   & 19.99   \\\hline
 \end{tabular}
 \end{exampletwouptiny}
-\item Use an ampersand \keystrokebftt{\&} to separate columns and a double backslash \keystrokebftt{\bs}\keystrokebftt{\bs} to start a new row (like in the \bftt{align*} environment that we saw in part 1).
+\item 用and符号 \keystrokebftt{\&} 分栏，双反斜线 \keystrokebftt{\bs}\keystrokebftt{\bs} 换行 (和第一部分 \bftt{align*} 情境中格式一样).
 \end{itemize}
 \end{frame}
 
@@ -246,12 +247,12 @@ Cable  & 3   & 19.99   \\\hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addtocontents{toc}{\newpage}
-\section{Bibliographies}
+\section{引用}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
+\begin{frame}{大纲}
 \begin{multicols}{2}
 \tableofcontents[currentsection]
 \end{multicols}
@@ -263,9 +264,9 @@ Cable  & 3   & 19.99   \\\hline
 \subsection{bib\TeX}
 \begin{frame}[fragile]{\insertsubsection{} 1}
 \begin{itemize}
-\item Put your references in a \bftt{.bib} file in `bibtex' database format:
+\item 把引用的论文信息用“bibtex”数据库格式放在一个 \bftt{.bib} 文档里：
 \inputminted[fontsize=\scriptsize,frame=single]{latex}{bib-example.bib}
-\item Most reference managers can export to bibtex format.
+\item 大多数引用处理器都能生成bibtex格式文件。
 \end{itemize}
 \end{frame}
 
@@ -274,17 +275,15 @@ Cable  & 3   & 19.99   \\\hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\insertsubsection{} 2}
 \begin{itemize}
-\item Each entry in the \bftt{.bib} file has a \emph{key} that you can use to
-reference it in the document. For example, \bftt{Jacobson1999Towards} is the key for this article:
+\item \bftt{.bib} 文档中的每一项都有一个关键字 \emph{key} 可供在文内引用。如 \bftt{Jacobson1999Towards} 就是这篇论文的关键字：
 \begin{minted}[fontsize=\small,frame=single]{latex}
 @Article{Jacobson1999Towards,
   author = {Van Jacobson},
   ...
 }
 \end{minted}
-\item It's a good idea to use a key based on the name, year and title.
-\item \LaTeX{} can automatically format your in-text citations and generate a
-list of references; it knows most standard styles, and you can design your own.
+\item 最好用作者/年份/标题作为关键字。
+\item \LaTeX{} 可以自动对文内引用进行排版，并在文尾生成单独页面；它预存了常用的引用格式，也支持自定义。
 \end{itemize}
 \end{frame}
 
@@ -293,10 +292,9 @@ list of references; it knows most standard styles, and you can design your own.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\insertsubsection{} 3}
 \begin{itemize}
-\item Use the \bftt{natbib} package\footnote{There is a new package with more
-  features named \bftt{biblatex} but most of the articles templates still use
-  \bftt{natbib}.} with \cmdbs{citet} and \cmdbs{citep}.
-\item Reference \cmdbs{bibliography} at the end, and specify a \cmdbs{bibliographystyle}.
+\item 用 \bftt{natbib} 宏包\footnote{T还有一个功能更多的 \bftt{biblatex} 宏包。不过大多数文档还是用
+  \bftt{natbib}。} 处理 \cmdbs{citet} 和 \cmdbs{citep}。
+\item 在文尾插入 \cmdbs{bibliography} 命令并设置引用格式 \cmdbs{bibliographystyle}。
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
@@ -310,21 +308,21 @@ list of references; it knows most standard styles, and you can design your own.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exercise}
-\begin{frame}[fragile]{Exercise: Putting it All Together}
+\subsection{练习}
+\begin{frame}[fragile]{练习：组装文档}
 
-Add an image and a bibliography to the paper from the previous exercise.
+为之前练习中的论文添加图片和引用部分。
 
 \begin{enumerate}
-\item Download these example files to your computer.
+\item 下载示例文档到本地
 
 \begin{center}
-\fbox{\href{\fileuri/gerbil.jpg?dl=1}{Click to download example image}}
+\fbox{\href{\fileuri/gerbil.jpg?dl=1}{点此下载例图}}
 
-\fbox{\href{\fileuri/bib-exercise.bib?dl=1}{Click to download example bib file}}
+\fbox{\href{\fileuri/bib-exercise.bib?dl=1}{点此下载bib文档示例}}
 \end{center}
 
-\item Upload them to Overleaf (use the project menu).
+\item 上传到Overleaf (打开Project菜单).
 
 \end{enumerate}
 \end{frame}
@@ -332,12 +330,12 @@ Add an image and a bibliography to the paper from the previous exercise.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{What's Next?}
+\section{就结束啦？}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
+\begin{frame}{大纲}
 \begin{multicols}{2}
 \tableofcontents[currentsection]
 \end{multicols}
@@ -346,18 +344,16 @@ Add an image and a bibliography to the paper from the previous exercise.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{More Neat Things}
+\subsection{更多技巧}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item Add the \cmdbs{tableofcontents} command to generate a table of contents
-from the \cmdbs{section} commands.
+\item 添加 \cmdbs{tableofcontents} 命令，可自动提取 \cmdbs{section} 中的信息并生成目录.
 
-\item Change the \cmdbs{documentclass} to
+\item 把文档类型 \cmdbs{documentclass} 改为
 \mint{latex}!\documentclass{scrartcl}!
-or
-\mint{latex}!\documentclass[12pt]{IEEEtran}!
+或\mint{latex}!\documentclass[12pt]{IEEEtran}!
 
-\item Define your own command for a complicated equation:
+\item 为复杂的方程自定义命令:
 \begin{exampletwouptiny}
 \newcommand{\rperf}{%
   \rho_{\text{perf}}}
@@ -371,57 +367,52 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{More Neat Packages}
+\subsection{常用宏包}
 \begin{frame}{\insertsubsection}
 \begin{itemize}
-\item \bftt{beamer}: for presentations (like this one!)
-\item \bftt{todonotes}: comments and TODO management
-\item \bftt{tikz}: make amazing graphics
-\item \bftt{pgfplots}: create graphs in \LaTeX
-\item \bftt{listings}: source code printer for \LaTeX
-\item \bftt{spreadtab}: create spreadsheets in \LaTeX
-\item \bftt{gchords}, \bftt{guitar}: guitar chords and tabulature
-\item \bftt{cwpuzzle}: crossword puzzles
+\item \bftt{beamer}: 做幻灯片（就是我）
+\item \bftt{todonotes}: 注释和备忘
+\item \bftt{tikz}: 制图惊艳
+\item \bftt{pgfplots}: \LaTeX 绘图
+\item \bftt{listings}: 在 \LaTeX 中显示源码
+\item \bftt{spreadtab}: 在 \LaTeX 中制表
+\item \bftt{gchords}, \bftt{guitar}: 吉他和弦和图氏记谱
+\item \bftt{cwpuzzle}: 填字游戏
 \end{itemize}
-See \url{https://www.overleaf.com/latex/examples} and \url{http://texample.net}
-for examples of (most of) these packages.
+\url{https://www.overleaf.com/latex/examples} 和 \url{http://texample.net}
+上有以上（大多数）宏包的示例。
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Installing \LaTeX{}}
+\subsection{安装\LaTeX{}}
 \begin{frame}{\insertsubsection}
 \begin{itemize}
-\item To run \LaTeX{} on your own computer, you'll want to use a \LaTeX{}
-\emph{distribution}. A distribution includes a \bftt{latex} program
-and (typically) several thousand packages.
+\item 若想在自己电脑上编译 \LaTeX{}，需使用 \LaTeX{}
+\emph{distribution}(发布版)。发布版包括一个 \bftt{latex} 编译器及（通常）上千个宏包.
 \begin{itemize}
-\item On Windows: \href{http://miktex.org/}{Mik\TeX} or \href{http://tug.org/texlive/}{\TeX Live}
-\item On Linux: \href{http://tug.org/texlive/}{\TeX Live}
-\item On Mac: \href{http://tug.org/mactex/}{Mac\TeX}
+\item Windows操作系统: \href{http://miktex.org/}{Mik\TeX} or \href{http://tug.org/texlive/}{\TeX Live}
+\item Linux: \href{http://tug.org/texlive/}{\TeX Live}
+\item Mac: \href{http://tug.org/mactex/}{Mac\TeX}
 \end{itemize}
-\item You'll also want a text editor with \LaTeX{} support. See \url{http://en.wikipedia.org/wiki/Comparison_of_TeX_editors} for a list of (many) options.
-\item You'll also have to know more about how \bftt{latex} and its related tools
-work --- see the resources on the next slide.
+\item 需要一个支持\LaTeX{} 的文本编辑器。\url{http://en.wikipedia.org/wiki/Comparison_of_TeX_editors} 上有不少选择。
+\item 需要进一步学习 \bftt{latex} 和有关工具——下一页提供了一些资料。
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Online Resources}
+\subsection{在线资料}
 \begin{frame}{\insertsubsection}
 \begin{itemize}
-\item \href{http://en.wikibooks.org/wiki/LaTeX}{The \LaTeX{} Wikibook} ---
-excellent tutorials and reference material.
-\item \href{http://tex.stackexchange.com/}{\TeX{} Stack Exchange} --- ask
-questions and get excellent answers incredibly quickly
-\item \href{http://www.latex-community.org/}{\LaTeX{} Community} --- a large
-online forum
+\item \href{http://en.wikibooks.org/wiki/LaTeX}{The \LaTeX{} Wikibook} ——实用的教程和参考资料。
+\item \href{http://tex.stackexchange.com/}{\TeX{} Stack Exchange} ——先搜索已解决问题再提问；很快就有优质解答。
+\item \href{http://www.latex-community.org/}{\LaTeX{} Community} ——庞大用户论坛
 \item \href{http://ctan.org/}{Comprehensive \TeX{} Archive Network (CTAN)} ---
-over four thousand packages plus documentation
-\item Google will usually get you to one of the above.
+包括超四千份宏包和代码说明。
+\item 搜索引擎返回的大多都是以上网站。
 \end{itemize}
 \end{frame}
 
@@ -430,113 +421,109 @@ over four thousand packages plus documentation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \begin{center}
-Thanks, and happy \TeX{}ing!
+谢谢观看，祝你 \TeX{}ing 愉快！
 \end{center}
 \end{frame}
 
 \end{document}
 
-% -- latex understands words, sentences and paragraphs
+% -- latex 能自动处理单词，句子和自然段
 
-Words are separated by one or more spaces.  Paragraphs are separated by
-one or more blank lines.  The output is not affected by adding extra
-spaces or extra blank lines to the input file.
+单词由空格分隔。语段由双换行分割。多余空格，空行不影响输出。
 
-Double quotes are typed like this: ``quoted text''.
-Single quotes are typed like this: `single-quoted text'.
+英文双引号需由反引号`和右单引号生成': ``quoted text''.
+单引号是这样: `single-quoted text'.
 
-Emphasized text is typed like this: \emph{this is emphasized}.
-Bold       text is typed like this: \textbf{this is bold}.
+强调: \emph{强调字体}.
+加粗: \textbf{粗体字体}.
 
--- Adding structure to your document
+-- 按结构组织文档
 
-\section{Hello}
+\section{嗨}
 
-\subsection{World}
+\subsection{小节}
 
-\subsection{Foo}
+\subsection{还有一个}
 
-\subsubsection*{Stuff} % star form
+\subsubsection*{加星号} % 无编号
 
-\subsubsection*{Results}
+\subsubsection*{结果}
 
--- Labels and cross-references
+-- 标签和引用
 
 \label{sec:intro}
 \label{sec:method}
 \ref{sec:method}
 
---> maybe introduce the prettyref package here.
+--> 也可在此介绍 prettyref 宏包。
 
--- Mathematics
+-- 公式编辑
 
-Inline mathematics: $x + y < 7$.
+行内式子：$x + y < 7$。
 
-'Displayed' mathematics:
+'Displayed' 形式的公式：放在
 \begin{equation}
 \end{equation}
+情境中
 
 \begin{equation*}
-\end{equation*}
+\end{equation*} %无编号
 
 \begin{align}
-\end{align}
+\end{align}     %多行对齐
 
--- Figures
+-- 图象
 
-- Need the graphicx package.
+- 需要 graphicx 宏包.
 
-- here we can start introducing options
-
+- 介绍宏包参数
 \includegraphics[width=\textwidth]{}
 
-- where do you find out about these options? --> link to the Wikibook
+- 怎么查找参数 --> 链到在线百科
 
--- Floating Figures
+-- 图像位置【浮动】
 
 \begin{figure}
 \includegraphics{...}
-\caption{\label{}Here is a caption.}
+\caption{\label{}图注.}
 \end{figure}
 
--- Tables
+-- 表格
 
-- not the nicest part of LaTeX
+- 这部分 LaTeX 没那么好玩
 
 \usepackage{tabularx}
 
 \begin{tabular}{llr}
-Item & Quantity & Price (\$) & Amount
-Widget & 1 &
+物品 & 数量 & 单价 (\$)\\
+玩意 & 1    & 0.00
 \end{tabular}
 
-Bonus points: check out the fp package and the spreadtab package.
+提高内容：fp 和 spreadtab 宏包。
 
--- Document Classes
-
+-- 文档类型
 a .cls file
 
-article
+文章
 
-some journal templates come with one
+有些期刊模板自带类型
 
--- Bibliographies
+-- 引用
 
 
 
--- For Typesetting Geeks
+-- 如果你对这里的排版好奇
+- 各种连字符和破折号: -, --, ---
 
-- dashes: -, --, ---
+- 省略号.
 
-- ellipsis.
+- 控制字符间距: ~, \ , \,, \@
 
-- controlling spaces: ~, \ , \,, \@
+- 句号后间距 (et al., etc.)
 
-- spacing after periods (et al., etc.)
-
-- Nested quotation marks: ``\,`
+- 几重引号: ``\,`
 \vskip 2ex
-\item Use the \emph{star form} to display an equation without a number.
+\item 加星号 \emph{star form} 就能显示无编号的方程。
 \begin{exampletwouptiny}
 \begin{equation*}
 F(x) = \int_{a}^{x}{f(t) dt}
@@ -544,12 +531,12 @@ F(x) = \int_{a}^{x}{f(t) dt}
 \end{exampletwouptiny}
 
 \begin{itemize}
-\item \bftt{equation} and \bftt{equation*} are called \emph{environments}.
+\item \bftt{equation} 和 \bftt{equation*} 被称为情境 \emph{environments}.
 \begin{itemize}
-  \item The \cmdbs{begin} and \cmdbs{end} commands define the environment.
-  \item The \cmd{\$} also starts and ends an environment.
-  \item Some commands are defined only within certain environments.
-  \item Some commands behave differently in different environments.
+  \item 每个情境都在一组\cmdbs{begin} 和 \cmdbs{end}命令间。
+  \item \cmd{\$} 标志数学情境的始末。
+  \item 有一些命令只在特定情境有效。
+  \item 有一些命令的效果随情境改变。
 \end{itemize}
 \end{itemize}
 \end{block}
@@ -560,7 +547,7 @@ F(x) = \int_{a}^{x}{f(t) dt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Typography tweaks}
+\subsection{强制转换}
 \begin{frame}{\insertsubsection}
 \begin{tabular}{lll}
 & character name & used mainly for \ldots \\\hline
@@ -577,17 +564,17 @@ F(x) = \int_{a}^{x}{f(t) dt}
 \end{tabular}
 \end{frame}
 
-%\item We've used several environments:
+%\item 我们用了不少情景
 %\vskip 1ex
 %{\scriptsize
 %\begin{tabular}{ll}
 %\cmdbs{begin}\bftt{\{document\}}\ldots\cmdbs{end}\bftt{\{document\}} &
-%  document environment \\
+%  正文情境 \\
 %\cmdbs{begin}\bftt{\{itemize\}}\ldots\cmdbs{end}\bftt{\{itemize\}} &
-%  itemized list environment \\
-%\bftt{\$\ldots\$}     & \emph{in-text} math environment \\
-%\bftt{\$\$\ldots\$\$} & \emph{displayed} math environment \\
+%  无序列表情境 \\
+%\bftt{\$\ldots\$}     & \emph{in-text} 行内式子 \\
+%\bftt{\$\$\ldots\$\$} & \emph{displayed} 单行式子 \\
 %\cmdbs{begin}\bftt{\{equation\}}\ldots\cmdbs{end}\bftt{\{equation\}} &
-%  displayed math environment w/ number
+% 带编号单行显示
 %\end{tabular}
 %}
