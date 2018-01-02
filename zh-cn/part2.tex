@@ -2,15 +2,7 @@
 
 \documentclass{beamer}
 
-% For output in Chinese
-\usepackage{xeCJK,textcomp}
-\setCJKmainfont[BoldFont = simhei.ttf, ItalicFont = xjlFont.ttf]{STXIHEI.TTF}
-\setCJKmathfont{cmr}
-\newfontfamily\myfont{Junicode-Italic.ttf}
-
 \input{preamble.tex}
-
-\usepackage{amsmath}
 
 \subtitle{第二节：多层文档...}
 
@@ -427,103 +419,107 @@ $$
 
 \end{document}
 
-% -- latex 能自动处理单词，句子和自然段
+% -- latex understands words, sentences and paragraphs
 
-单词由空格分隔。语段由双换行分割。多余空格，空行不影响输出。
+Words are separated by one or more spaces.  Paragraphs are separated by
+one or more blank lines.  The output is not affected by adding extra
+spaces or extra blank lines to the input file.
 
-英文双引号需由反引号`和右单引号生成': ``quoted text''.
-单引号是这样: `single-quoted text'.
+Double quotes are typed like this: ``quoted text''.
+Single quotes are typed like this: `single-quoted text'.
 
-强调: \emph{强调字体}.
-加粗: \textbf{粗体字体}.
+Emphasized text is typed like this: \emph{this is emphasized}.
+Bold       text is typed like this: \textbf{this is bold}.
 
--- 按结构组织文档
+-- Adding structure to your document
 
-\section{嗨}
+\section{Hello}
 
-\subsection{小节}
+\subsection{World}
 
-\subsection{还有一个}
+\subsection{Foo}
 
-\subsubsection*{加星号} % 无编号
+\subsubsection*{Stuff} % star form
 
-\subsubsection*{结果}
+\subsubsection*{Results}
 
--- 标签和引用
+-- Labels and cross-references
 
 \label{sec:intro}
 \label{sec:method}
 \ref{sec:method}
 
---> 也可在此介绍 prettyref 宏包。
+--> maybe introduce the prettyref package here.
 
--- 公式编辑
+-- Mathematics
 
-行内式子：$x + y < 7$。
+Inline mathematics: $x + y < 7$.
 
-'Displayed' 形式的公式：放在
+'Displayed' mathematics:
 \begin{equation}
 \end{equation}
-情境中
 
 \begin{equation*}
-\end{equation*} %无编号
+\end{equation*}
 
 \begin{align}
-\end{align}     %多行对齐
+\end{align}
 
--- 图象
+-- Figures
 
-- 需要 graphicx 宏包.
+- Need the graphicx package.
 
-- 介绍宏包参数
+- here we can start introducing options
+
 \includegraphics[width=\textwidth]{}
 
-- 怎么查找参数 --> 链到在线百科
+- where do you find out about these options? --> link to the Wikibook
 
--- 图像位置【浮动】
+-- Floating Figures
 
 \begin{figure}
 \includegraphics{...}
-\caption{\label{}图注.}
+\caption{\label{}Here is a caption.}
 \end{figure}
 
--- 表格
+-- Tables
 
-- 这部分 LaTeX 没那么好玩
+- not the nicest part of LaTeX
 
 \usepackage{tabularx}
 
 \begin{tabular}{llr}
-物品 & 数量 & 单价 (\$)\\
-玩意 & 1    & 0.00
+Item & Quantity & Price (\$) & Amount
+Widget & 1 &
 \end{tabular}
 
-提高内容：fp 和 spreadtab 宏包。
+Bonus points: check out the fp package and the spreadtab package.
 
--- 文档类型
+-- Document Classes
+
 a .cls file
 
-文章
+article
 
-有些期刊模板自带类型
+some journal templates come with one
 
--- 引用
+-- Bibliographies
 
 
 
--- 如果你对这里的排版好奇
-- 各种连字符和破折号: -, --, ---
+-- For Typesetting Geeks
 
-- 省略号.
+- dashes: -, --, ---
 
-- 控制字符间距: ~, \ , \,, \@
+- ellipsis.
 
-- 句号后间距 (et al., etc.)
+- controlling spaces: ~, \ , \,, \@
 
-- 几重引号: ``\,`
+- spacing after periods (et al., etc.)
+
+- Nested quotation marks: ``\,`
 \vskip 2ex
-\item 加星号 \emph{star form} 就能显示无编号的方程。
+\item Use the \emph{star form} to display an equation without a number.
 \begin{exampletwouptiny}
 \begin{equation*}
 F(x) = \int_{a}^{x}{f(t) dt}
@@ -531,12 +527,12 @@ F(x) = \int_{a}^{x}{f(t) dt}
 \end{exampletwouptiny}
 
 \begin{itemize}
-\item \bftt{equation} 和 \bftt{equation*} 被称为情境 \emph{environments}.
+\item \bftt{equation} and \bftt{equation*} are called \emph{environments}.
 \begin{itemize}
-  \item 每个情境都在一组\cmdbs{begin} 和 \cmdbs{end}命令间。
-  \item \cmd{\$} 标志数学情境的始末。
-  \item 有一些命令只在特定情境有效。
-  \item 有一些命令的效果随情境改变。
+  \item The \cmdbs{begin} and \cmdbs{end} commands define the environment.
+  \item The \cmd{\$} also starts and ends an environment.
+  \item Some commands are defined only within certain environments.
+  \item Some commands behave differently in different environments.
 \end{itemize}
 \end{itemize}
 \end{block}
@@ -547,7 +543,7 @@ F(x) = \int_{a}^{x}{f(t) dt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{强制转换}
+\subsection{Typography tweaks}
 \begin{frame}{\insertsubsection}
 \begin{tabular}{lll}
 & character name & used mainly for \ldots \\\hline
@@ -564,17 +560,17 @@ F(x) = \int_{a}^{x}{f(t) dt}
 \end{tabular}
 \end{frame}
 
-%\item 我们用了不少情景
+%\item We've used several environments:
 %\vskip 1ex
 %{\scriptsize
 %\begin{tabular}{ll}
 %\cmdbs{begin}\bftt{\{document\}}\ldots\cmdbs{end}\bftt{\{document\}} &
-%  正文情境 \\
+%  document environment \\
 %\cmdbs{begin}\bftt{\{itemize\}}\ldots\cmdbs{end}\bftt{\{itemize\}} &
-%  无序列表情境 \\
-%\bftt{\$\ldots\$}     & \emph{in-text} 行内式子 \\
-%\bftt{\$\$\ldots\$\$} & \emph{displayed} 单行式子 \\
+%  itemized list environment \\
+%\bftt{\$\ldots\$}     & \emph{in-text} math environment \\
+%\bftt{\$\$\ldots\$\$} & \emph{displayed} math environment \\
 %\cmdbs{begin}\bftt{\{equation\}}\ldots\cmdbs{end}\bftt{\{equation\}} &
-% 带编号单行显示
+%  displayed math environment w/ number
 %\end{tabular}
 %}
