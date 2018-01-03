@@ -1,4 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CAUTION:
 % Need to compile under XeTex or XeLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{beamer}
 
@@ -81,38 +84,19 @@
 \end{itemize}
 \end{exampletwoup}
 \vskip 2ex
-
-\cmd{itemize}是模块名称，表示创建无序列表。
-
-有序列表使用\cmd{enumerate}。
-
-\vskip 2ex
-
 \begin{exampletwoup}
 \begin{figure}
 \includegraphics{gerbil}
 \end{figure}
 \end{exampletwoup}
-
-\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
-\end{frame}
-
-\begin{frame}[fragile]{更多例子\ldots}
-\myfont
+\vskip 2ex
 \begin{exampletwoup}
 \begin{equation}
 \alpha + \beta + 1
 \end{equation}
 \end{exampletwoup}
-\vskip 2em
-\begin{exampletwoup}
-{\CJKfontspec[FakeSlant = 0.2]
-{STXIHEI.TTF}伪斜体（华文细黑）}
-\end{exampletwoup}
-\vskip 2em
-\begin{exampletwoup}
-\textit{italics表强调}
-\end{exampletwoup}
+\vskip 1ex
+\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,20 +134,39 @@
 
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item \LaTeX{} 中文输入：
+\item \LaTeX{} CJKutf8（过时）：
 \inputminted[frame=single]{latex}{basics-zh-cn.tex}
-\item \emph{CKJutf8}用UTF8编码，\cmd{gbsn}是字体名称。
-\item 使用中需将含有中文字符部分括起来
-\item CJK亦可处理日韩文本
+\item \bftt{CKJutf8}用UTF8编码，\cmd{gbsn}是字体名称。
+\item 需要用pdfLaTeX编译
+\item CJK宏包已经过时，现在通常推荐XeCJK或ctex宏包。
+\end{itemize} 
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection}
+\begin{itemize}
+\item \LaTeX{} xeCJK示例：
+\inputminted[frame=single]{latex}{basics-zh-cn1.tex}
+\item 可以分别设置中文字体和数学公式字体
+\item 使用xeCJK宏包则必须用XeTeX/XeLaTeX编译
+\item 片末会讲到粗体，强调字体和斜体
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item \LaTeX{} 其他中文处理方式：
-\inputminted[frame=single]{latex}{basics-zh-cn1.tex}
-\item 将分别设置中文字体和数学公式字体
-\item 使用XeCJK宏包则必须用XeTeX编译
+\item \LaTeX{} ctex 宏包：
+\inputminted[frame=single]{latex}{basics-zh-cn2.tex}
+\item 这个宏包接受多种编译方式，但建议使用XeLaTeX或LuaLaTeX。
+\item 查看CTAN资源库中的使用手册：
+\begin{center}
+\fbox{\href{https://ctan.org/pkg/xecjk}{%
+点此查看xeCJK}}
+\end{center}
+\vskip 2em
+\begin{center}
+\fbox{\href{https://www.ctan.org/pkg/ctex}{%
+点此查看ctex}}
+\end{center}
 \end{itemize}
 \end{frame}
 
@@ -176,7 +179,7 @@
 \vskip 2em
 \begin{center}
 \fbox{\href{\wlnewdoc{basics.tex}}{%
-点击这里打开一个 \wllogo{}示例文档}}
+点此在 \wllogo{} 中创建文档}}
 \\[1ex]\scriptsize{}
 为保证编译体验，最好使用 \href{http://www.google.com/chrome}{Google Chrome} 或新版 \href{http://www.mozilla.org/en-US/firefox/new/}{FireFox}浏览器。
 \end{center}
@@ -531,6 +534,40 @@ S_n = \frac{1}{n}\sum_{i}^{n} X_i
 \item 试过之后，
 \fbox{\href{\wlnewdoc{basics-exercise-2-solution.tex}}{%
 这里有我的解答}}.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{中文排版}
+\begin{frame}[fragile]{\insertsubsection{}: 粗体，斜体和强调}
+
+\begin{itemize}
+\item 对于西文（主要指拉丁字母）字体，\textbf{\myfontb bold}和\textit{\myfont italics}经常是单独设计的粗体、花体，而非简单的加粗和倾斜。
+\item 伪斜体，伪粗体只是将字符变形，不是单独的字体。
+\vskip 1em
+\begin{exampletwoup}
+{\CJKfontspec[FakeSlant = 0.2]
+{STXIHEI.TTF}伪斜体（华文细黑）}
+
+{\CJKfontspec[FakeBold = 2]
+{STXIHEI.TTF}伪粗体（华文细黑）}
+\end{exampletwoup}
+\vskip 1em
+\item 若要符合中文排版规范，通常用{\CJKfontspec{AR PL SungtiL GB} 宋体}作基本字体，然后设置\emph{楷体}为强调，\textbf{黑体}为加粗。{\CJKfontspec{STFANGSO.TTF}仿宋}有时用于伪代码。
+\vskip 1em
+\begin{exampletwoup}
+\textit{italics表强调}
+\end{exampletwoup}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection{}: xeCJK 宏包}
+\begin{itemize}
+\item 可编辑基本文档，支持字体、标点调整。
+\inputminted[frame=single]{latex}{ex-p1-xecjk.tex}
 \end{itemize}
 \end{frame}
 

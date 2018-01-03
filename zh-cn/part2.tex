@@ -1,4 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CAUTION:
 % Need to compile under XeTex or XeLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{beamer}
 
@@ -63,10 +66,10 @@
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {structure-title.tex}
+  {ex-p2-struc-title.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=2.2in 7in 2.2in 2in]{structure-title.pdf}
+\includegraphics[width=\textwidth,clip,trim=2.2in 7in 2.2in 2in]{ex-p2-struc-title.pdf}
 \end{minipage}
 \end{frame}
 
@@ -81,10 +84,10 @@
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {structure-sections.tex}
+  {ex-p2-struc-sections.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=1.5in 6in 4in 1in]{structure-sections.pdf}
+\includegraphics[width=\textwidth,clip,trim=1.5in 6in 4in 1in]{ex-p2-struc-sections.pdf}
 \end{minipage}
 \end{frame}
 
@@ -99,10 +102,10 @@
 }\end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {structure-crossref.tex}
+  {ex-p2-struc-crossref.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=1.8in 6in 1.6in 1in]{structure-crossref.pdf}
+\includegraphics[width=\textwidth,clip,trim=1.8in 6in 1.6in 1in]{ex-p2-struc-crossref.pdf}
 \end{minipage}
 \end{frame}
 
@@ -115,20 +118,20 @@
 \begin{block}{用 \LaTeX 输入这篇短论文：
 \footnote{英文版来自 \url{http://pdos.csail.mit.edu/scigen/}，一个论文随机生成器，中文版是笠翁对韵，三字经和千字文。}}
 \begin{center}
-\fbox{\href{\fileuri/structure-exercise-solution.pdf}{%
+\fbox{\href{\fileuri/exercise-part2-structure-sol.pdf}{%
 点击打开文档}}
 \end{center}
 你的目标就是这样的文档。用 \cmdbs{ref} 和 \cmdbs{eqref}；不要在文本中直接写章节和方程编号。
 \end{block}
 \vskip 2ex
 \begin{center}
-\fbox{\href{\wlnewdoc{structure-exercise.tex}}{%
+\fbox{\href{\wlnewdoc{exercise-part2-structure.tex}}{%
 点此在 \wllogo{} 中打开该练习的源码}}
 \end{center}
 
 \begin{itemize}
 \item 试过后，
-\fbox{\href{\wlnewdoc{structure-exercise-solution.tex}}{%
+\fbox{\href{\wlnewdoc{exercise-part2-structure-sol.tex}}{%
 这里有我的代码}}.
 \end{itemize}
 \end{frame}
@@ -196,10 +199,10 @@
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {media-graphics.tex}
+  {ex-p2-media-graphics.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=2in 5in 3in 1in]{media-graphics.pdf}
+\includegraphics[width=\textwidth,clip,trim=2in 5in 3in 1in]{ex-p2-media-graphics.pdf}
 \end{minipage}
 
 \tiny{图象使用许可：\href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
@@ -256,8 +259,8 @@
 \subsection{bib\TeX}
 \begin{frame}[fragile]{\insertsubsection{} 1}
 \begin{itemize}
-\item 把引用的论文信息用“bibtex”数据库格式放在一个 \bftt{.bib} 文档里：
-\inputminted[fontsize=\scriptsize,frame=single]{latex}{bib-example.bib}
+\item 要想用\LaTeX{}自动处理脚注，文献页等，需先把参考文献用“bibtex”数据库格式放在一个 \bftt{.bib} 文档里：
+\inputminted[fontsize=\scriptsize,frame=single]{latex}{ex-p2-bib.bib}
 \item 大多数引用处理器都能生成bibtex格式文件。
 \end{itemize}
 \end{frame}
@@ -275,7 +278,7 @@
 }
 \end{minted}
 \item 最好用作者/年份/标题作为关键字。
-\item \LaTeX{} 可以自动对文内引用进行排版，并在文尾生成单独页面；它预存了常用的引用格式，也支持自定义。
+\item \LaTeX{} 可以自动将文内引用的资料按统一格式处理，并在文尾生成单独页面；它预存了常用的格式，也支持自定义。
 \end{itemize}
 \end{frame}
 
@@ -290,10 +293,10 @@
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {bib-example.tex}
+  {ex-p2-bib.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{bib-example.pdf}
+\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{ex-p2-bib.pdf}
 \end{minipage}
 \end{frame}
 
@@ -311,7 +314,7 @@
 \begin{center}
 \fbox{\href{\fileuri/gerbil.jpg?dl=1}{点此下载例图}}
 
-\fbox{\href{\fileuri/bib-exercise.bib?dl=1}{点此下载bib文档示例}}
+\fbox{\href{\fileuri/exercise-part2-bib?dl=1}{点此下载bib文档示例}}
 \end{center}
 
 \item 上传到Overleaf (打开Project菜单).

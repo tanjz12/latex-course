@@ -1,0 +1,12 @@
+\documentclass{article}
+% 在调用宏包的同时设置参数
+\usepackage[CJKmath=true]{xeCJK}
+
+% 亦可调用之后继续设置参数
+\xeCJKsetup{PunctStyle=quanjiao} % 全角标点
+
+% 可以用中文定义命令
+\newcommand{\无穷}{\infty}
+\begin{document}
+\textbf{为什么} $8$ \textit{横}过来就是 $\无穷$ ?
+\end{document}
