@@ -558,16 +558,99 @@ S_n = \frac{1}{n}\sum_{i}^{n} X_i
 \vskip 1em
 \item 若要符合中文排版规范，通常用{\CJKfontspec{AR PL SungtiL GB} 宋体}作基本字体，然后设置\emph{楷体}为强调，\textbf{黑体}为加粗。{\CJKfontspec{STFANGSO.TTF}仿宋}有时用于伪代码。
 \vskip 1em
+\myfont
 \begin{exampletwoup}
 \textit{italics表强调}
 \end{exampletwoup}
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]{\insertsubsection{}: xeCJK 宏包}
 \begin{itemize}
 \item 可编辑基本文档，支持字体、标点调整。
 \inputminted[frame=single]{latex}{ex-p1-xecjk.tex}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\insertsubsection：文档结构}
+\begin{itemize}{
+\item \LaTeX 里文档结构，包括章节和段落，也可由命令统一控制。
+\item article 默认的标题名称都是英文；使用 ctex 则默认将其改为中文。
+\item 从大到小有 
+\begin{itemize}
+\item part，chapter，section，subsection，subsubsection
+\item paragraph，subparagraph
+\end{itemize} 前五个生成单起一行的标题，后两个是段落。
+\begin{itemize}
+\item 段首可设特殊格式。
+\end{itemize}
+\item 使用 \cmdbs{section} 和 \cmdbs{subsection}分层即可。
+\item 你猜 \cmdbs{section*} 和 \cmdbs{subsection*} 有什么效果？
+}\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{\insertsubsection{}: ctex 宏包}
+\begin{itemize}
+\item 本地编译时，编译方式会对导致略微不同的排版。使用XeLaTeX编译相当于调用XeCJK支持。
+\item 日期，章节标题，页眉等默认都已汉化。见下例 \footnote{引自\href{http://www.zwbk.org/MyLemmaShow.aspx?lid=185246}{中文百科}}。
+
+% 这部幻灯使用xeCJK支持，因此ctex命令无法直接实现，不能用woup情境。
+% pdf 源码为下页练习。左例代码是 ex-p1-ctex，内容有删减。
+
+   \fbox{\begin{tabular}{l|l}
+   \begin{minipage}{0.55\linewidth}
+     \inputminted[fontsize=\scriptsize,resetmargins]{latex}{ex-p1-ctex.tex}
+   \end{minipage} &
+   \begin{minipage}{0.35\linewidth}
+     \includegraphics[width=\textwidth,clip,trim=1.5in 3in 1.5in 1in]{ex-p1-ctex.pdf}
+   \end{minipage}
+   \end{tabular}}
+  
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{中文排版练习}
+
+\begin{block}{用 \LaTeX 把上张幻灯的 pdf 示例改成这样：}
+\begin{center}
+\fbox{\href{\fileuri/exercise-part1-ctex-solution.pdf}{%
+点此打开文档}}
+\end{center}
+\end{block}
+
+\begin{itemize}
+\item 共有四点改动：
+\begin{itemize}
+\item 日期改成中文
+\item 目录名称改为【目录/Contents】
+\item 取消自然段前自动空两格
+\item 将小节（section）标题改为【第（阿拉伯数字）节】。
+\end{itemize}
+\begin{center}
+\fbox{\href{\wlnewdoc{exercise-part1-ctex.tex}}{%
+点此在 \wllogo{} 中打开该练习的源码}}
+\end{center}
+\item 试过后，
+\fbox{\href{\wlnewdoc{exercise-part1-ctex-solution.tex}}{%
+这里有我的代码}}.
 \end{itemize}
 \end{frame}
 
